@@ -1,0 +1,24 @@
+apply plugin: 'java'
+defaultTasks 'jar'
+
+sourceCompatibility = 1.8
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+//Define the contents of the jar file
+jar {
+    manifest{
+        attributes 'Implementation-Title': 'M2',
+            'Implementation-Version': version,
+            'Main-Class': 'edu.gatech.oad.antlab.pkg1.AntLabMain',
+            'Class-Path': '../../lib/resources.jar'
+    }
+}
+
+dependencies {
+    compile files('lib/resources.jar')
+    testCompile 'junit:junit:4.12'
+}
